@@ -1,0 +1,104 @@
+/**
+ * CALCULADORA FULL STACK - Estética Neutra Glassmorphism
+ * @author Joshua Chiguay
+ */
+
+:root {
+    /* Paleta Neutra: Escala de grises y blancos */
+    --bg-accent: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05); /* Transparencia sutil */
+    --screen-bg: #121212;                   /* Negro carbón para la pantalla */
+    --text-color: #e0e0e0;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    
+    /* Fondo animado: Desvanecimiento entre Negro, Gris Oscuro y Blanco Humo */
+    background: linear-gradient(-45deg, #000000, #1a1a1a, #444444, #0a0a0a);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.calculator-body {
+    width: 340px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px); /* Efecto cristal esmerilado */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 35px;
+    padding: 30px;
+    /* Sombra más profunda para fondos negros */
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+}
+
+.display {
+    background: var(--screen-bg);
+    height: 90px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    color: #ffffff; /* Dígitos en blanco puro para contraste */
+    font-family: 'Orbitron', monospace;
+    font-size: 2.2rem;
+    box-shadow: inset 0 2px 15px rgba(0,0,0,0.8);
+    border: 1px solid #222;
+    overflow: hidden;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+button {
+    height: 65px;
+    border: none;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.05); /* Botones casi invisibles */
+    color: var(--text-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+button:active { transform: scale(0.95); }
+
+/* Operadores en Blanco para destacar en lo neutro */
+.btn-op { 
+    color: #ffffff; 
+    font-weight: bold; 
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Herramientas (C) en un gris más tenue */
+.btn-tool { color: #ce6666; }
+
+/* Botón igual: El único elemento con blanco sólido para jerarquía */
+.btn-equal {
+    background: #ffffff;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
